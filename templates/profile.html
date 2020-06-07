@@ -1,0 +1,55 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <title>profile</title>
+      <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" >
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+  </head>
+  <body>
+    
+    <section id="cover">
+     <div id="cover-caption">
+         <div id="container">
+             <div class="col-sm-10 col-sm offset-1">
+               <form method="post">
+                 <p> <a href="{% url 'logout' %}">logout</a></p>
+                  
+                  {% csrf_token %}
+                  {% if seller_data %}
+                  <marquee><font color="red">Your shopee:{{seller_data.shop_name}}</marquee></font>
+                  <p class="center"> Address : {{seller_data.address}}</p>
+                  <h5><p class="center"><a href="{% url 'seller_product'  request.user.seller.user %}">add product here</a></p></h5>
+                  <h5><p class="center"><a href="{% url 'check_product'  request.user.seller.user.id %}">check product here</a></p></h5>
+                  {% endif %}
+                  
+                  {% for data in product_data %}
+                  <table>
+                    <tr>
+                      <td>
+                        {{data.sid}}
+                      </td>
+                    </tr>
+                  </table>
+                  {% endfor %}
+              
+                
+                
+              
+                </form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    </div>
+    </div>
+    </div>
+    </section>
+  </body>
+</html>

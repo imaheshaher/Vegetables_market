@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+{% load static %}
+<html>
+  <head>
+    <title>vegetable market</title>
+        <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" >
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  </head>
+  
+  <body>
+  
+{% block content %}
+<nav>
+  <div>
+    <a href="{% url 'logout' %}">logout</a>
+  </div>
+</nav>
+{{seller}}
+  <marquee>Buy here fresh fruits and vegetable</marquee>
+  {% for image in images %}
+  <table>
+    <tr>{{image}}</tr>
+  </table>
+  {% endfor %}
+    {% for product in all_product %}
+    
+    <table border="1">
+      <tr>
+        <td>{{}}</td>
+        <td> {{product.veg_id}} </td>
+        <td>{{product.sid}}</td>
+      </tr>
+      </table>
+      <br>
+    {% endfor %}
+{% endblock %}
+  </body>
+</html>

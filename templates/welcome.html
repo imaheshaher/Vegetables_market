@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html>
+  <title>vegetable market</title>
+  <head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+    </head>
+<body>
+  <h2><marquee>Buy Fresh Vegitables here </marquee></h2>
+  <p><a class="navbar-brand" href="{% url 'home' %}">Login</a><br><a href="{% url 'home' %}">Sell Your Product here</a></p>
+  <table>
+    {% for img in list1 %}
+      <tr>
+       <td>
+          <img src="{{img.url}}"> </img>
+          </td>
+          
+    {% endfor %}
+   {% for a in mylist  %}
+     
+       <td>
+       <a href="{% url 'home'  %}">seller name : {{a}} | vegitable : {{a.veg_id}} |  Price :{{a.price}}/kg
+       </a>
+       </td>
+     </tr>
+  
+   {% endfor %}
+</table>
+   
+</body>    
+  </head>
+</html>
+
+{% endblock %}

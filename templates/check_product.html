@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>vegitable market</title>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" >
+    <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+  </head>
+  <body>
+    
+    
+  
+
+ {% block content %}
+    <h5><p style="text-align:right;"><a href="{% url 'logout' %}">logout</a></p></h5>
+  <table>
+    {% for d in data %}
+      <tr>
+       <td>
+          {{ d.sid }}
+          </td>
+          
+  
+     </tr>
+  
+   {% endfor %}
+</table>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+    
+    {% endblock %}
+ 
+
+    
+  </body>
+</html>
